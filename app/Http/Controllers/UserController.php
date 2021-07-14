@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
-
-class UserController extends Controller
-{
-    public function dangki(){
-        return view('user.dangki');
+class UserController extends Controller{
+    public function form (){
+        return view("form");
     }
-    function xuLiDangki(Request $request){
-        $fullname = $request->get('fullname');
-        $email = $request->get('email');
-        $phone = $request->get('phone');
-        $address = $request->get('address');
-        $identitycard = $request->get('identitycard');
-        return $fullname . ' ' . $email . ' ' . $phone . ' ' . $address . ' ' . $identitycard;
+    public function store(StoreRequest $request){
+        $users = new Users();
+        $users->imun = $request->imun;
+        $users->firstname = $request->firstname;
+        $users->lastname = $request->lastname;
+        $users->phone = $request->phone;
+        $users->gender = $request->gender;
+        $users->save();
+        return 'Success';
     }
 }

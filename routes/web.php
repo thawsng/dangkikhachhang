@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user/dang-ki',[UserController::class, 'dangki']);
-Route::post('/user/dang-ki',[UserController::class, 'xuLiDangki']);
-
-
+Route::get('/user/dang-ki',[UserController::class, 'form']);
+Route::post('/user/dang-ki',[UserController::class, 'store']);
 
 
